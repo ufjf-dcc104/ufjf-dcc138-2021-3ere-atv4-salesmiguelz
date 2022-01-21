@@ -17,17 +17,18 @@ assets.carregaAudio("boom", "assets/boom.wav");
 
 const canvas = document.querySelector("canvas");
 const cena1 = new Cena(canvas, assets);
-canvas.width = 14*32;
-canvas.height = 10*32;
+canvas.width = 18*32;
+canvas.height = 14*32;
 
-const mapa1 = new Mapa(10, 14, 32);
+const mapa1 = new Mapa(14, 18, 32);
 mapa1.carregaMapa(modeloMapa1);
 cena1.configuraMapa(mapa1);
 
 
 const pc = new Sprite({x: 50, vx: 10});
 const en1 = new Sprite({
-    x: 160,
+    x:30,
+    y: 50,
     vx: -10,
     color: "red"
 });
@@ -44,7 +45,7 @@ cena1.adicionar(new Sprite({
 
 cena1.adicionar(new Sprite({
     x: 115,
-    y: 160,
+    y: 110,
     vy: -10,
     color: "red"
 }));

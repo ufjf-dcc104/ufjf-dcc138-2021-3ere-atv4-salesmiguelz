@@ -17,8 +17,6 @@ export default class Sprite{
     desenhar(ctx){
         ctx.fillStyle = this.color;
         ctx.fillRect(this.x - this.w/2, this.y - this.h/2,this.w, this.h);
-        ctx.strokeStyle = "blue";
-        ctx.strokeRect(this.mx * this.cena.mapa.SIZE, this.my * this.cena.mapa.SIZE, this.cena.mapa.SIZE, this.cena.mapa.SIZE);
     }
     passo(dt){
         this.x = this.x + this.vx * dt;

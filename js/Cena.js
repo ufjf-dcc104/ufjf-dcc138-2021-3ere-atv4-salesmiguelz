@@ -14,6 +14,8 @@ export default class Cena{
         this.spawn = 0;
 
         this.mapa = null;
+
+        this.contaInimigos = 0;
     }
     
     desenhar(){
@@ -130,20 +132,31 @@ export default class Cena{
     }
 
     criaInimigo(){
-        let sl = 0;
-        let sc = 0;
-
-        while(this.mapa.tiles[sl][sc] != 0){
-            sl = Math.floor(Math.random() * (14 - 1 - 1) + 1);
-            sc = Math.floor(Math.random() * (18 - 1 - 1) + 1);
+        if(this.contaInimigos < 20){
+            let sl = 0;
+            let sc = 0;
+    
+            while(this.mapa.tiles[sl][sc] != 0){
+                sl = Math.floor(Math.random() * (14 - 1 - 1) + 1);
+                sc = Math.floor(Math.random() * (18 - 1 - 1) + 1);
+            }
+    
+            const en1 = new Sprite({
+                x: sc * 32 + 32/2,
+                y: sl * 32 + 32/2,
+                color: "red"
+            });
+    
+            this.adicionar(en1);
+            this.contaInimigos++;
+            
+        } else{
+            for(const sprite of this.sprites){
+                if(sprite.color == 'red'){
+                    this.aRemover.push(sprite);
+                }
+            }
         }
-
-        const en1 = new Sprite({
-            x: sc * 32 + 32/2,
-            y: sl * 32 + 32/2,
-            color: "red"
-        });
-
-        this.adicionar(en1);
+       
     }
 }

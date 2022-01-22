@@ -1,3 +1,5 @@
+import Sprite from "./Sprite.js";
+
 export default class Cena{
     constructor(canvas, assets = null){
         this.canvas = canvas;
@@ -8,6 +10,8 @@ export default class Cena{
         this.dt = 0;
         this.idAnim = null;
         this.assets = assets;
+
+        this.spawn = 0;
 
         this.mapa = null;
     }
@@ -42,6 +46,14 @@ export default class Cena{
             for (const sprite of this.sprites) {
                 sprite.passo(dt);
             }
+        }
+
+        this.spawn += dt;
+
+        if(this.spawn >= 3.0){
+            this.spawn = 0;
+
+            this.criaInimigo();
         }
     }
 
@@ -115,5 +127,23 @@ export default class Cena{
     configuraMapa(mapa){
         this.mapa = mapa;
         this.mapa.cena = this;
+    }
+
+    criaInimigo(){
+        let sl = 0;
+        let sc = 0;
+
+        while(this.mapa.tiles[sl][sc] != 0){
+            sl = Math.floor(Math.random() * (14 - 1 - 1) + 1);
+            sc = Math.floor(Math.random() * (18 - 1 - 1) + 1);
+        }
+
+        const en1 = new Sprite({
+            x: sc * 32 + 32/2,
+            y: sl * 32 + 32/2,
+            color: "red"
+        });
+
+        this.adicionar(en1);
     }
 }

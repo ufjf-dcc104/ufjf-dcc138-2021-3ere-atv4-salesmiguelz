@@ -10,10 +10,11 @@ const assets = new AssetManager(mixer);
 assets.carregaImagem("garota", "assets/garota.png");
 assets.carregaImagem("esqueleto", "assets/skelly.png");
 assets.carregaImagem("orc", "assets/orc.png");
+assets.carregaImagem("rock", "assets/rock.png");
+assets.carregaImagem("grass", "assets/grass.jpg");
 assets.carregaAudio("moeda", "assets/coin.wav");
 assets.carregaAudio("boom", "assets/boom.wav");
 assets.carregaAudio("hit", "assets/hit.wav");
-
 
 
 const canvas = document.querySelector("canvas");
@@ -27,14 +28,8 @@ cena1.configuraMapa(mapa1);
 
 
 const pc = new Sprite({x: 150, vx: 10});
-
-
-
 cena1.adicionar(pc);
-
-
 cena1.iniciar();
-
 document.addEventListener("keydown", (e) => {
     switch (e.key) {
         case "s":

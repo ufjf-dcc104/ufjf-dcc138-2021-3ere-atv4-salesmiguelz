@@ -96,6 +96,8 @@ export default class Cena{
         if(!this.aRemover.includes(b)){
             this.aRemover.push(b);
         }
+        //É necessario o usuario interagir com a pagina para que o asset pode ser tocado
+        this.assets.play('hit');
     }
 
     removerSprites(){

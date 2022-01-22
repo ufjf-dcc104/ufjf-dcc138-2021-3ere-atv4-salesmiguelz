@@ -12,6 +12,7 @@ assets.carregaImagem("esqueleto", "assets/skelly.png");
 assets.carregaImagem("orc", "assets/orc.png");
 assets.carregaAudio("moeda", "assets/coin.wav");
 assets.carregaAudio("boom", "assets/boom.wav");
+assets.carregaAudio("hit", "assets/hit.wav");
 
 
 
@@ -25,7 +26,7 @@ mapa1.carregaMapa(modeloMapa1);
 cena1.configuraMapa(mapa1);
 
 
-const pc = new Sprite({x: 50, vx: 10});
+const pc = new Sprite({x: 150, vx: 10});
 const en1 = new Sprite({
     x:30,
     y: 50,
@@ -37,7 +38,7 @@ const en1 = new Sprite({
 cena1.adicionar(pc);
 cena1.adicionar(en1);
 cena1.adicionar(new Sprite({
-    x: 115,
+    x: 180,
     y: 50,
     vy: 10,
     color: "green"
